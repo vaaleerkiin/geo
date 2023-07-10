@@ -1,10 +1,8 @@
 const express = require("express");
-
+const axios = require("axios");
 const router = express.Router();
 
 router.get("/", async (req, res, next) => {
-  // const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
-  const ip = req.ip;
   const ips = (
     req.headers["cf-connecting-ip"] ||
     req.headers["x-real-ip"] ||
@@ -12,7 +10,8 @@ router.get("/", async (req, res, next) => {
     req.connection.remoteAddress ||
     ""
   ).split(",");
-  res.json({ ip, ips: ips[0].trim() });
+  console.log(ips);
+  res.json({ ip: ips[0].trim() });
 });
 
 module.exports = router;
