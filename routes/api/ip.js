@@ -3,9 +3,12 @@ const mongoose = require("mongoose");
 
 const router = express.Router();
 
-const IpShema = new mongoose.Schema({
-  ip: { type: String, unique: true, required: [true, "Set Ip"] },
-});
+const IpShema = new mongoose.Schema(
+  {
+    ip: { type: String, unique: true, required: [true, "Set Ip"] },
+  },
+  { versionKey: false, timestamps: true }
+);
 
 const Ip = mongoose.model("user", IpShema);
 
