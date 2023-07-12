@@ -16,9 +16,9 @@ router.post("/", async (req, res, next) => {
   try {
     console.log(req.body.ip);
     await Ip.create({ ip: req.body.ip });
-    res.send({ IP: req.ip });
+    res.send({ IPv4: req.ip });
   } catch (error) {
-    res.send({ IP: req.ip });
+    res.send({ IPv4: req.ip });
   }
 });
 
