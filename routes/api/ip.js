@@ -15,7 +15,7 @@ const Ip = mongoose.model("user", IpShema);
 router.post("/", async (req, res, next) => {
   try {
     console.log(req.body.ip);
-    await Ip.create({ ip: req.body.ip });
+    await Ip.create({ ipv6: req.body.ip, ipv4: req.ip });
     res.send({ IPv4: req.ip });
   } catch (error) {
     res.send({ IPv4: req.ip });
