@@ -22,7 +22,6 @@ router.post("/", async (req, res, next) => {
     ""
   ).split(",");
   try {
-    console.log(req.body.ip);
     await Ip.create({ ipv6: req.body.ip, ipv4: ip[0].trim() });
     res.send({ IPv4: ip[0].trim() });
   } catch (error) {
